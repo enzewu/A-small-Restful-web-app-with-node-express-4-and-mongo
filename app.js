@@ -1,9 +1,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var flash = require('connect-flash');
+
 var routes = require('./routes/index'),
     logger = require('morgan'),
     http = require('http');
@@ -19,9 +17,7 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(cookieParser());
-app.use(session({secret:'somesecrettokenhere'}));
-app.use(flash());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(methodOverride(function(req, res){
