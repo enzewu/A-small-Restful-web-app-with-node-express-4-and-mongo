@@ -43,13 +43,13 @@ router.post('/tasks',function(req, res){
   task.save(function (err) {
     if (!err) {
         
-      req.flash('info', 'Task created');
+      
       console.log(req.flash('info', 'Task created'));
       res.redirect('/tasks');
       
     }
     else {
-      req.flash('warning', err);
+      
       res.redirect('/tasks/new');
     }
   });
